@@ -2,5 +2,5 @@
 
 ## 0.9.0
 
-The first public  version of the library.
+The first public version of the library. This is a beta version.
 

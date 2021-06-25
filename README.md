@@ -4,6 +4,13 @@ It's a JavaScript library containing core player functionality for embedding liv
 
 To get started checkout examples and documentation at https://stormweb.web-anatomy.com/docs/javascript-getting-started
 
+# Installation
+> `npm install --save stormlibrary`
+
+You may also want to install types for your TypeScript project
+
+> `npm install --save @types/stormlibrary`
+
 Browser compatibility
 ---------------------
 * Edge 12+
@@ -12,10 +19,12 @@ Browser compatibility
 * Safari 13+
 * Opera 15+
 
+For legacy browsers, HLS mode is used instead.
+
 ## Resources
 
 - [Documentation](https://www.stormstreaming.com/docs)
-- [Sample Video Player](https://github.com/StormStreaming/stormplayer-js)
+- [Sample Video Player Project](https://github.com/StormStreaming/stormplayer-js)
 
 
 ## License
