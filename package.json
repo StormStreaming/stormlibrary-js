@@ -1,8 +1,9 @@
 {
   "name": "@stormstreaming/stormlibrary",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": " A JavaScript library containing core web video player functionality for embedding live-video streams on a website. Part of StormStreaming Suite.",
-  "main": "dist/stormlibrary.min.js",
+  "main": "stormlibrary.min.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
