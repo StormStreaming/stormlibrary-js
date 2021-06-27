@@ -1,0 +1,27 @@
+{
+  "name": "stormlibrary",
+  "version": "0.9.1",
+  "description": " A JavaScript library containing core web video player functionality for embedding live-video streams on a website. Part of StormStreaming Suite.",
+  "main": "dist/stormlibrary.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StormStreaming/stormlibrary-js.git"
+  },
+  "keywords": [
+    "stormstreaming",
+    "web",
+    "video",
+    "player",
+    "low-latency",
+    "live-streaming"
+  ],
+  "author": "stormstreaming.com",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/StormStreaming/stormlibrary-js/issues"
+  },
+  "homepage": "https://github.com/StormStreaming/stormlibrary-js#readme"
+}
