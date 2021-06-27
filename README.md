@@ -2,7 +2,7 @@
 
 It's a JavaScript library containing core player functionality for embedding live-video streams on a website.
 
-To get started checkout examples and documentation at https://stormweb.web-anatomy.com/docs/javascript-getting-started
+To get started checkout examples and documentation at https://stormstreaming.com/docs/javascript-getting-started
 
 # Installation
 > `npm install --save stormlibrary`
@@ -25,6 +25,7 @@ For legacy browsers, HLS mode is used instead.
 
 - [Documentation](https://www.stormstreaming.com/docs)
 - [Sample Video Player Project](https://github.com/StormStreaming/stormplayer-js)
+- [Changelog](CHANGELOG.md)
 
 
 ## License
