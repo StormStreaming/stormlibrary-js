@@ -1,15 +1,15 @@
 # [Storm JavaScript Library](http://stormstreaming.com/)
 
-It's a JavaScript library containing core player functionality for embedding live-video streams on a website.
+A JavaScript library containing core player functionality for embedding live-video streams on a website.
 
 To get started checkout examples and documentation at https://stormstreaming.com/docs/javascript-getting-started
 
 # Installation
-> `npm install --save stormlibrary`
+> `npm install --save @stormstreaming/stormlibrary`
 
 You may also want to install types for your TypeScript project
 
-> `npm install --save @types/stormlibrary`
+> `npm install --save @stormstreaming/stormlibrary-types`
 
 Browser compatibility
 ---------------------

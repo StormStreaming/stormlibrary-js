@@ -1,6 +1,6 @@
 {
-  "name": "stormlibrary",
-  "version": "0.9.1",
+  "name": "@stormstreaming/stormlibrary",
+  "version": "0.9.2",
   "description": " A JavaScript library containing core web video player functionality for embedding live-video streams on a website. Part of StormStreaming Suite.",
   "main": "dist/stormlibrary.min.js",
   "scripts": {
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/StormStreaming/stormlibrary-js/issues"
   },
-  "homepage": "https://github.com/StormStreaming/stormlibrary-js#readme"
+  "homepage": "https://github.com/StormStreaming/stormlibrary-js#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
