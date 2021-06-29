@@ -1,10 +1,10 @@
 # Change Log
 
+
 ## 1.0.0
 
-- Small improvements to license error-handling. 
+- Small improvements to license error-handling.
 
-This is first production-ready version!
 
 ## 0.9.4
 
