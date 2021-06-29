@@ -5,7 +5,16 @@ A JavaScript library containing core player functionality for embedding live-vid
 To get started checkout examples and documentation at https://www.stormstreaming.com/docs/javascript-getting-started
 
 # Installation
+
+1. Using NPM:
+
 > `npm install --save @stormstreaming/stormlibrary`
+
+2. Using Yarn:
+
+> `npm install --dev @stormstreaming/stormlibrary`
+
+3. Manually - simply grab `/dist/stormlibrary.js` file and embedd in on your website.
 
 Browser compatibility
 ---------------------
