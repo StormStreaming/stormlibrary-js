@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.2.0
+
+- Improved support for Facebook/Messenger browser,
+- "play" method received a parameter allowing for "force" start,
+- A small bug in "destroy" method was fixed (not all connections were terminated)
+
+
 ## 1.1.0
 
 - Improved latency management for iOS,
