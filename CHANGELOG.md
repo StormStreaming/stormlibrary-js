@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.2.1
+
+- Bug with HLS connection timeout was fixed,
+
+
 ## 1.2.0
 
 - Improved support for Facebook/Messenger browser,
