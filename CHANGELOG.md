@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.0
+
+- Dedicated bundles for UMD, AMD, CJS, ESM, IIFE are now available,
+- Improved typings for TypeScript,
+
+Please keep in mind that this build is not compatible with previous releases. While API/Events are the same, creating
+a library instance is different depending on the used module type.
+
 ## 1.2.1
 
 - Bug with HLS connection timeout was fixed,

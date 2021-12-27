@@ -1,6 +1,6 @@
 # [Storm JavaScript Library](http://stormstreaming.com/)
 
-A JavaScript library containing core player functionality for embedding live-video streams on a website.
+A JavaScript library containing core player functionality for embedding live-video streams on a website. It comes in IIFE, ESM, AMD, UMD, and CJS versions (if you don't know these, grab IIFE, and it will be OK). Typings are also included.
 
 To get started checkout examples and documentation at https://www.stormstreaming.com/docs/javascript-getting-started
 
@@ -12,9 +12,9 @@ To get started checkout examples and documentation at https://www.stormstreaming
 
 2. Using Yarn:
 
-> `npm install --dev @stormstreaming/stormlibrary`
+> `yarn install --dev @stormstreaming/stormlibrary`
 
-3. Manually - simply grab `/dist/stormlibrary.js` file and embedd in on your website.
+3. Manually - if you are clueless about NPM/Yarn or simply want to test it out, just grab`/dist/iife/index.js` file and embed it on your website.
 
 Browser compatibility
 ---------------------

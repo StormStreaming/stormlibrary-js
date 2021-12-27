@@ -1,0 +1,38 @@
+import { IPlayer } from "./IPlayer";
+import { StormLibrary } from "../StormLibrary";
+export declare class VideoContainer {
+    containerID: string;
+    private videoObject;
+    private videoContainer;
+    private containerWidth;
+    private containerHeight;
+    private scalingMode;
+    private videoWidth;
+    private videoHeight;
+    private player;
+    private main;
+    private forceMute;
+    private alreadyPlayed;
+    private savedVolume;
+    constructor(main: StormLibrary);
+    initialize(): void;
+    attachPlayer(player: IPlayer): void;
+    detachPlayer(): void;
+    private attachEvents;
+    dispatchVolumeEvent(): void;
+    play(): void;
+    mute(): void;
+    unmute(): void;
+    setVolume(newVolume: number): void;
+    getVolume(): number;
+    getVideoObject(): HTMLVideoElement;
+    destroy(force?: boolean): void;
+    setSize(width: number, height: number): void;
+    setWidth(width: number): void;
+    setHeight(height: number): void;
+    getWidth(): number;
+    getHeight(): number;
+    setScalingMode(newMode: string): void;
+    private scaleVideo;
+    makeScreenshot(): any;
+}

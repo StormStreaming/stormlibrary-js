@@ -1,0 +1,35 @@
+import { StormServerItem } from "../model/StormServerItem";
+import { GatewayServerItem } from "../model/GatewayServerItem";
+import { ISourceItem } from "../model/ISourceItem";
+import { SecurityConfig } from "./SecurityConfig";
+import { IStreamItem } from "../model/IStreamItem";
+import { RoleType } from "./enum/RoleType";
+import { ConnectionType } from "./enum/ConnectionType";
+import { Logger } from "../logger/Logger";
+export declare class StreamConfig {
+    private readonly PRINT_ON_STARTUP;
+    private readonly DEFAULT_STORM_PORT;
+    private readonly IS_SSL_BY_DEFAULT;
+    private streamConfig;
+    private serverList;
+    private gatewayServerList;
+    private sourceList;
+    private securityConfig;
+    private publishData;
+    private roleType;
+    private connectionType;
+    private groupName;
+    constructor(streamConfig: any, roleType: RoleType, connectionType: ConnectionType);
+    parse(streamConfig: any, roleType: RoleType): void;
+    getServerList(): Array<StormServerItem>;
+    getSourceList(): Array<ISourceItem>;
+    getGatewayServerList(): Array<GatewayServerItem>;
+    getGroupName(): string;
+    getSecurityConfig(): SecurityConfig;
+    getPublishData(): IStreamItem;
+    getConnectionType(): ConnectionType;
+    setServerList(serverList: Array<StormServerItem>): void;
+    setSourceList(sourceList: Array<ISourceItem>): void;
+    getRole(): RoleType;
+    print(logger: Logger, force?: boolean): void;
+}
