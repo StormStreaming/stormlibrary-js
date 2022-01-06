@@ -1,6 +1,6 @@
 {
   "name": "@stormstreaming/stormlibrary",
-  "version": "2.0.0-beta.4",
+  "version": "2.0.0",
   "description": "A JavaScript library containing core web video player functionality for embedding live-video streams on a website. Part of StormStreaming Suite.",
   "private": false,
   "author": "Web-Anatomy s.c. <contact@web-anatomy.com>",
@@ -9,7 +9,8 @@
   "types": "dist/types/index.esm.d.ts",
   "files": [
     "*.d.ts",
-    "dist"
+    "dist",
+    "samples"
   ],
   "license": "SEE LICENSE IN LICENSE.txt",
   "repository": {
