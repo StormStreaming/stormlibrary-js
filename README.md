@@ -32,6 +32,7 @@ To get started check our examples and documentation at https://www.stormstreamin
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Storm JavaScript Library - IIFE Sample page</title>
     <meta charset="UTF-8">
     <script src="../dist/iife/index.js"></script>
 </head>
@@ -42,7 +43,6 @@ To get started check our examples and documentation at https://www.stormstreamin
          * Standard configuration object
          */
         const config = {
-            role: "player",                                  // "player" or "streamer"
             connectionType: "direct",                        // "direct" or "gateway", please check doc for more info
             stream: {
                 serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
@@ -169,6 +169,7 @@ To get started check our examples and documentation at https://www.stormstreamin
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Storm JavaScript Player - UMD Sample page</title>
     <meta charset="UTF-8">
     <script src="../dist/umd/index.js"></script>
 </head>
@@ -179,7 +180,6 @@ To get started check our examples and documentation at https://www.stormstreamin
          * Standard configuration object
          */
         const config = {
-            role: "player",                                  // "player" or "streamer"
             connectionType: "direct",                        // "direct" or "gateway", please check doc for more info
             stream: {
                 serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
@@ -309,7 +309,6 @@ import {StormLibrary} from "../dist/esm/index.js";
  * Standard configuration object
  */
 const config = {
-    role: "player",                                  // "player" or "streamer"
     connectionType: "direct",                        // "direct" or "gateway", please check doc for more info
     stream: {
         serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
@@ -433,6 +432,7 @@ storm.initialize();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Storm JavaScript Player - AMD Sample page</title>
     <meta charset="UTF-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
 </head>
@@ -444,7 +444,6 @@ storm.initialize();
          * Standard configuration object
          */
         const config = {
-            role: "player",                                  // "player" or "streamer"
             connectionType: "direct",                        // "direct" or "gateway", please check doc for more info
             stream: {
                 serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
@@ -632,27 +631,30 @@ storm.removeEventListener("playerReady");
 | getRole() | "player" or "streamer" | string | The method returns whether the player is working in the “player” or “streamer” mode (the streamer function has not been implemented yet). | 
 | getVersion() | Player version | string | The method returns player version. | 
 | initialize() | - | void | Activates all scripts within the player. All event-listeners should be already attached to the player. | 
-| start() | - | void | The method starts the stream. If “autostart” option has been selected in the config player, this method will be called automatically. |
-| stop() | - | void | This method will stop the current playback and cease all operations. |
-| restart() | - | void | The player is restarted to the default state (a combination of stop() and start() methods). | 
 | play() | - | void | This method will force the player to play the specific content (if it was paused previously). | 
+| pause() | - | void | This method pauses current playback. | 
+| stop() | - | void | This method will stop the current playback and cease all operations. |
+| restart() | - | void | The player is restarted to the default state (a combination of stop() and start() methods). |
 | togglePlay() | - | void | This method will work as a pause/play switch depending on the current player state. | 
 | isPlaying() | *true* if player is playing some content, *false* otherwise. | void | Returns true/false depending on current player state. | 
-| getPlaybackStatus() | *"initialized", "started", "playing", "paused", "buffering", "stopped"* | string | Returns current player state. | 
-| pause() | - | void | This method pauses current playback. | 
+| getPlaybackStatus() | *"initialized", "started", "playing", "paused", "buffering", "stopped"* | string | Returns current player state. |
 | seek(time:number) | - | void | Seeks stream to a given time (stream source timestamp) | 
 | mute() | - | void | Mutes the player’s video object. It’s not the same as setVolume(0), as both methods can be applied together. | 
 | unmute() | - | void | The method unmutes the player’s video object. | 
 | toggleMute() | - | void | Switches mute on/off. | 
 | isMute() | *true* if player is muted, or *false* if it’s not | boolean | This method can be used to check whether the player is muted. | 
 | setVolume(newVolume:int) | - | void | Sets new volume for the player (0-100). Once the method is performed "volumeChange" event will be triggered. | 
+| getVolume() | Current volume level | number | Returns player volume (0-100). | 
 | setSize(width:int, height:int) | - | void | Forces the player to resize to specific dimensions. | 
 | setWidth(width:int) | - | void | Sets a new width for the player. | 
+| getWidth() | Player width | number | Returns player width. | 
 | setHeight(height:int) | - | void | Sets a new height for the player. | 
-| setScalingMode(newMode:string) | - | void | Changes player scaling mode. For reference, please check scaling mode in the player config. 
+| getHeight() | Player height | number | Returns player height. | 
+| setScalingMode(newMode:string) | - | void | Changes player scaling mode. For reference, please check scaling mode in the player config. |
+| getScalingMode() | Current scaling mode | string | Current player scaling mode. For reference, please check scaling mode in the player config. |
 | destroy() | - | void | Destroys the player and removes it from the container. |
 | addEventListener(eventName:string, callback:function, thisRef:object, priority:number, logMessage:string = "") | - | void | Registers an event with the player object. Whenever a registered event occurs, player will call a predefined function provided |
-| removeEventListener(eventName:string, callback:function) | - | void | Removes event listener from the player. |
+| removeEventListener(eventName:string, callback:function = null) | - | void | Removes event listener from the player. If callback is not provided all events of that type will be removed |
 | getAllSources() | - | Object | Returns all stream sources added to the player. |
 | getAvailableQualities() | Object containing available qualities (their labels) | Object | Returns list of all available stream qualities. Qualities are derived from streamInfo.label sources parameter. |
 | setQuality(quality:string) | - | Object | Forces player to start the playback matching this quality (streamInfo.label source parameter must be present). |

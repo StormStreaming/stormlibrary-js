@@ -33,6 +33,7 @@ export declare class VideoContainer {
     getWidth(): number;
     getHeight(): number;
     setScalingMode(newMode: string): void;
+    getScalingMode(): string;
     private scaleVideo;
     makeScreenshot(): any;
 }

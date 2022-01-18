@@ -9,6 +9,8 @@ export declare class SecurityConfig implements IConfig {
     parse(config: any): void;
     setConfig(config: any): void;
     getSecurityMethod(): SecurityType;
+    setSecurityMethod(newValue: string): void;
     getToken(): string;
+    setToken(newValue: string): void;
     print(logger: Logger, force?: boolean): void;
 }

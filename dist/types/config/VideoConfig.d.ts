@@ -14,5 +14,9 @@ export declare class VideoConfig implements IConfig {
     getContainerID(): string;
     getContainerWidth(): number;
     getContainerHeight(): number;
+    setContainerWidth(newWidth: number): void;
+    setContainerHeight(newHeight: number): void;
+    setContainerID(newContainerID: string): void;
+    setScalingMode(newScalingMode: string): void;
     print(logger: Logger): void;
 }

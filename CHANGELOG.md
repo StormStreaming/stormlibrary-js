@@ -1,5 +1,25 @@
 # Change Log
 
+## 2.1.3
+
+- Improved documentation and samples,
+
+## 2.1.2
+
+- Small improvements in resizing module,
+
+## 2.1.1
+
+- PlayerState bug on quality change was fixed,
+
+## 2.1.0
+
+- All end-point config options received setters,
+
+## 2.0.1
+
+- Bug with isInitialized() method returning false after the event was fixed,
+
 ## 2.0.0
 
 - Dedicated bundles for UMD, AMD, CJS, ESM, IIFE are now available,

@@ -8,7 +8,9 @@ export declare class StorageConfig implements IConfig {
     constructor(storageConfig: any);
     parse(storageConfig: any): void;
     isStorageEnabled(): boolean;
+    setStorageEnabled(newValue: boolean): void;
     getPrefix(): string;
+    setPrefix(newValue: string): void;
     setConfig(config: any): void;
     print(logger: Logger, force?: boolean): void;
 }

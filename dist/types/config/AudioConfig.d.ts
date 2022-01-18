@@ -9,8 +9,11 @@ export declare class AudioConfig implements IConfig {
     constructor(volumeConfig: any);
     parse(config: any): void;
     getStartVolume(): number;
+    setStartVolume(newValue: number): void;
     getMaxVolume(): number;
+    setMaxVolume(newValue: number): void;
     isRememberValue(): boolean;
+    setRememberValue(newValue: boolean): void;
     setConfig(config: any): void;
     print(logger: Logger, force?: boolean): void;
 }

@@ -14,12 +14,19 @@ export declare class DebugConfig implements IConfig {
     constructor(debugConfig: any);
     parse(debugConfig: any): void;
     isConsoleEnabled(): boolean;
+    setConsoleEnabled(newValue: boolean): void;
     getConsoleLogTypes(): Array<LogType>;
+    setConsoleLogTypes(newValue: Array<string>): void;
     isContainerEnabled(): boolean;
+    setContainerEnabled(newValue: boolean): void;
     isConsoleMonoColor(): boolean;
+    setConsoleMonoColor(newValue: boolean): void;
     getContainerLogTypes(): Array<LogType>;
+    setContainerLogTypes(newValue: Array<string>): void;
     getContainerID(): any;
+    setContainerID(object: any): void;
     isContainerMonoColor(): boolean;
+    setContainerMonoColor(newValue: boolean): void;
     setConfig(config: any): void;
     print(logger: Logger, force?: boolean): void;
 }

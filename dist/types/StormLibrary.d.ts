@@ -57,6 +57,7 @@ export declare class StormLibrary extends EventDispatcher {
     isMicrophoneMuted(): any;
     toggleCamera(): void;
     setScalingMode(newMode: string): void;
+    getScalingMode(): string;
     restart(): void;
     getCurrentSource(): any;
     getAllSources(): any;

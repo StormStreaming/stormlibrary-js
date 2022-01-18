@@ -13,6 +13,10 @@ export declare class BufferConfig implements IConfig {
     getMaxValue(): number;
     getStartValue(): number;
     getTargetValue(): number;
+    setMinValue(newValue: number): void;
+    setMaxValue(newValue: number): void;
+    setTargetValue(newValue: number): void;
+    setStartValue(newValue: number): void;
     setConfig(config: any): void;
     print(logger: Logger, force?: boolean): void;
 }
