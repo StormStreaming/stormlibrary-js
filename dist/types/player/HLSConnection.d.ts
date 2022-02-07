@@ -14,7 +14,7 @@ export declare class HLSConnection extends AbstractSocket {
     private seekStart;
     constructor(main: StormLibrary, player: HLSPlayer);
     protected createSocket(serverData: IServerItem): void;
-    startHLSConnection(videoSource: RTMPSourceItem | StormSourceItem): void;
+    startHLSConnection(videoSource: RTMPSourceItem | StormSourceItem, seekTime: number): void;
     protected onSocketOpen(event: any): void;
     protected onSocketClose(event: any): void;
     protected onSocketMessage(event: any): void;

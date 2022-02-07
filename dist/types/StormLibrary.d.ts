@@ -4,6 +4,7 @@ import { Logger } from "./logger/Logger";
 import { ClientUser } from "./model/ClientUser";
 import { IPlayer } from "./player/IPlayer";
 import { WebRTCStreamer } from "./streamer/WebRTCStreamer";
+import { StorageManager } from "./storage/StorageManager";
 import { StormLibraryConfig } from "./types/StormLibraryConfig";
 export declare class StormLibrary extends EventDispatcher {
     private readonly PLAYER_VERSION;
@@ -19,8 +20,10 @@ export declare class StormLibrary extends EventDispatcher {
     internalPlayer: IPlayer;
     internalStreamer: WebRTCStreamer;
     private gatewayConnection;
+    private storageManager;
     private clientUser;
     private settings;
+    private isDocumentFocused;
     constructor(settings: StormLibraryConfig);
     private onVisibilityChange;
     initialize(): void;
@@ -71,5 +74,6 @@ export declare class StormLibrary extends EventDispatcher {
     getSettings(): any;
     getPlayerProtocolVersion(): number;
     isInitialized(): boolean;
+    getStorageManager(): StorageManager;
     destroy(): void;
 }

@@ -1,6 +1,8 @@
 import { IPlayer } from "./IPlayer";
 import { StormLibrary } from "../StormLibrary";
+import { Logger } from "../logger/Logger";
 export declare class VideoContainer {
+    private readonly LOG_ACTIVITY;
     containerID: string;
     private videoObject;
     private videoContainer;
@@ -11,9 +13,11 @@ export declare class VideoContainer {
     private videoHeight;
     private player;
     private main;
+    protected logger: Logger;
+    private wasUnmuted;
+    private isMuted;
+    private currentVolume;
     private forceMute;
-    private alreadyPlayed;
-    private savedVolume;
     constructor(main: StormLibrary);
     initialize(): void;
     attachPlayer(player: IPlayer): void;

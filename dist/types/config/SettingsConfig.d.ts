@@ -21,6 +21,7 @@ export declare class SettingsConfig implements IConfig {
     private debugConfig;
     private audioConfig;
     private presetConfig;
+    private restartOnFocus;
     constructor(config: any);
     parse(config: any): void;
     getEnabledProtocols(): Array<ProtocolType>;
@@ -30,6 +31,7 @@ export declare class SettingsConfig implements IConfig {
     getIfShouldRestartOnErrror(): boolean;
     getRecoonectTime(): number;
     getIfAutoStart(): boolean;
+    getIfRestartOnFocus(): boolean;
     getDebugConfig(): DebugConfig;
     getStorageConfig(): StorageConfig;
     setConfig(config: any): void;

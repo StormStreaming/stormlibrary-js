@@ -12,7 +12,6 @@ export declare class MSEPlayer extends AbstractPlayer implements IPlayer {
     private mediaSource;
     private segmentsQueue;
     private commandQueue;
-    private seekTime;
     private sourceBuffer;
     private bufferUpdateGuard;
     private dummyRestart;
@@ -23,13 +22,10 @@ export declare class MSEPlayer extends AbstractPlayer implements IPlayer {
     start(): void;
     play(force?: boolean): void;
     pause(): void;
-    togglePlay(): void;
     onVideoMetadata(event: any): void;
     onTimeUpdate(event: any): void;
     onConnectionStart(): void;
     stop(): void;
-    getTime(): number;
-    getAbsoluteTime(): number;
     onVideoPlay(): void;
     onVideoPause(): void;
     onSourceOpen(): void;
@@ -38,8 +34,6 @@ export declare class MSEPlayer extends AbstractPlayer implements IPlayer {
     private processEvent;
     onSocketError(shouldReconnect: boolean, reconnectTime: number): void;
     onAllServersFailed(): void;
-    onVolumeChange(event: any): void;
-    getVideoContainer(): VideoContainer;
     pickBestSource(sourceList: Array<ISourceItem>, protocolTypes: Array<ProtocolType>): StormSourceItem | RTMPSourceItem;
     setQuality(sourceName: string): boolean;
     seek(time: number): boolean;

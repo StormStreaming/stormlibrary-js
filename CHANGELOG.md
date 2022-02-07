@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.2.0
+
+- New optional parameter for Settings section called "restartOnFocus" was added,
+- Pause/Play mechanism has been alerted slightly for DVR functionality,
+
+## 2.1.4
+
+- Improved event reporting for VolumeChange and Mute on/off,
+- Improved seek mechanism (DVR),
+- Timeout for all connections has been added,
+
 ## 2.1.3
 
 - Improved documentation and samples,

@@ -1,6 +1,7 @@
 import { IServerItem } from "../model/IServerItem";
 import { ConnectionState } from "./enum/ConnectionState";
 export declare class AbstractSocket {
+    protected readonly CONNECTION_TIMEOUT: number;
     protected socket: WebSocket;
     protected socketURL: string;
     protected serverData: IServerItem;
@@ -9,6 +10,7 @@ export declare class AbstractSocket {
     protected messageCount: number;
     protected messageTotalSize: number;
     protected reconnectTimer: any;
+    protected connectionTimeout: any;
     constructor();
     protected startSocket(socketURL: string, isBinary?: boolean): void;
     startConnection(): void;

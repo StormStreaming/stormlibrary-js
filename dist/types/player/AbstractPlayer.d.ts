@@ -19,6 +19,8 @@ export declare class AbstractPlayer {
     protected logger: Logger;
     protected selectedSource: RTMPSourceItem | StormSourceItem | WebRTCSourceItem;
     protected playerType: PlayerType;
+    protected seekTime: number;
+    protected seekMode: boolean;
     constructor(main: StormLibrary, video: VideoContainer);
     start(): void;
     play(): void;
@@ -33,10 +35,16 @@ export declare class AbstractPlayer {
     isPlaying(): boolean;
     getPlaybackStatus(): string;
     selectSource(sourceItem: any): void;
+    togglePlay(): void;
     restart(): void;
     getCurrentQuality(): string;
+    getVideoContainer(): VideoContainer;
+    getTime(): number;
+    getAbsoluteTime(): number;
     getPlayerState(): PlayerState;
     getCurrentSource(): any;
     getPlayerType(): PlayerType;
     destroy(): void;
+    isInSeekMode(): boolean;
+    setSeekValue(newValue: number): void;
 }

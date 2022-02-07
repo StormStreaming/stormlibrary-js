@@ -61,7 +61,8 @@ To get started check our examples and documentation at https://www.stormstreamin
                 ]
             },
             settings: {
-                autoStart: true,                              // if true, video will start playing automatically, but will be muted too
+                autoStart: true,                              // if set to true, video will start playing automatically, but will be muted too
+                restartOnFocus: true,                         // if set to true, player will reload on document focus on mobile device (e.g. user switches from one tab to another)
                 restartOnError: true,                         // if something bad happens, player will try to restart
                 reconnectTime: 1.0,                           // if a connection with a server fails, player will restart in given time
                 enabledProtocols: ["MSE", "HLS"],             // "MSE" for desktop, android browsers and iPad OS, "HLS" for iPhone iOS
@@ -199,6 +200,7 @@ To get started check our examples and documentation at https://www.stormstreamin
             },
             settings: {
                 autoStart: true,                              // if true, video will start playing automatically, but will be muted too
+                restartOnFocus: true,                         // if set to true, player will reload on document focus on mobile device (e.g. user switches from one tab to another)
                 restartOnError: true,                         // if something bad happens, player will try to restart
                 reconnectTime: 1.0,                           // if a connection with a server fails, player will restart in given time
                 enabledProtocols: ["MSE", "HLS"],             // "MSE" for desktop, android browsers and iPad OS, "HLS" for iPhone iOS
@@ -328,6 +330,7 @@ const config = {
     },
     settings: {
         autoStart: true,                              // if true, video will start playing automatically, but will be muted too
+        restartOnFocus: true,                         // if set to true, player will reload on document focus on mobile device (e.g. user switches from one tab to another)
         restartOnError: true,                         // if something bad happens, player will try to restart
         reconnectTime: 1.0,                           // if a connection with a server fails, player will restart in given time
         enabledProtocols: ["MSE", "HLS"],             // "MSE" for desktop, android browsers and iPad OS, "HLS" for iPhone iOS
@@ -463,6 +466,7 @@ storm.initialize();
             },
             settings: {
                 autoStart: true,                              // if true, video will start playing automatically, but will be muted too
+                restartOnFocus: true,                         // if set to true, player will reload on document focus on mobile device (e.g. user switches from one tab to another)
                 restartOnError: true,                         // if something bad happens, player will try to restart
                 reconnectTime: 1.0,                           // if a connection with a server fails, player will restart in given time
                 enabledProtocols: ["MSE", "HLS"],             // "MSE" for desktop, android browsers and iPad OS, "HLS" for iPhone iOS

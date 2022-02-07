@@ -20,8 +20,9 @@ export interface IPlayer {
     addStreamSource(sourceItem: any, addAndPlay: boolean): boolean;
     setQuality(sourName: string): boolean;
     getCurrentQuality(): string;
-    onVolumeChange(event: any): void;
     onVideoMetadata(event: any): void;
     getVideoContainer(): VideoContainer;
     getPlayerType(): PlayerType;
+    isInSeekMode(): boolean;
+    setSeekValue(newValue: number): void;
 }

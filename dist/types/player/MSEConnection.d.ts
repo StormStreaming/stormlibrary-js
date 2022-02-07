@@ -13,7 +13,7 @@ export declare class MSEConnection extends AbstractSocket {
     private seekStart;
     constructor(main: StormLibrary, player: MSEPlayer);
     protected createSocket(serverData: IServerItem): void;
-    startMSEConnection(videoSource: RTMPSourceItem | StormSourceItem): void;
+    startMSEConnection(videoSource: RTMPSourceItem | StormSourceItem, seekTime: number): void;
     protected onSocketOpen(event: any): void;
     protected onSocketClose(event: any): void;
     protected onSocketMessage(event: any): void;

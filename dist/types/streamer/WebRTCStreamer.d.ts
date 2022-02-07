@@ -34,6 +34,8 @@ export declare class WebRTCStreamer implements IPlayer, IWebRTC, IStreamer {
     private noTimestampProgress;
     private lastCameraChangeTime;
     constructor(main: StormLibrary, video: VideoContainer);
+    isInSeekMode(): boolean;
+    setSeekValue(newValue: number): void;
     seek(time: number): boolean;
     getCurrentQuality(): string;
     addSource(sourceItem: any, addAndPlay: boolean): boolean;
