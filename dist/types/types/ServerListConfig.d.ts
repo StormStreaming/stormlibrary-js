@@ -1,5 +1,5 @@
 export declare type ServerListConfig = {
-    host?: string;
+    host: string;
     port?: number;
     ssl?: boolean;
 };

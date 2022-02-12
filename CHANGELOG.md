@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.2.1
+
+- Incorrect config types were fixed,
+- Missing streamInfo type was added,
+- Missing restartOnFocus parameter type was added,
+
 ## 2.2.0
 
 - New optional parameter for Settings section called "restartOnFocus" was added,

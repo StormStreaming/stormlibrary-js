@@ -1,5 +1,5 @@
 export declare type SecurityConfig = {
-    type?: string;
+    type: string;
     token?: string;
     password?: string;
 };

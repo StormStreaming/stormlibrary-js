@@ -1,8 +1,8 @@
 import { StreamConfig } from "./StreamConfig";
 import { SettingsConfig } from "./SettingsConfig";
 export declare type StormLibraryConfig = {
-    role: string;
-    connection: string;
+    role?: string;
+    connectionType: string;
     stream: StreamConfig;
     settings: SettingsConfig;
 };
