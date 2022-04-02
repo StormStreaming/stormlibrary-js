@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.2.2
+
+- Small fix removing liveupdate component from the library (reduced size),
+
 ## 2.2.1
 
 - Incorrect config types were fixed,
