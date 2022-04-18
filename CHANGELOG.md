@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.2.3
+
+- Improved memory management for video object (small RAM usage for long streaming sessions),
+
 ## 2.2.2
 
 - Small fix removing liveupdate component from the library (reduced size),

@@ -8,6 +8,7 @@ import { IPlayer } from "./IPlayer";
 import { VideoContainer } from "./VideoContainer";
 export declare class MSEPlayer extends AbstractPlayer implements IPlayer {
     private readonly LOG_ACTIVITY;
+    private readonly MAX_BUFFER_SIZE;
     private connection;
     private mediaSource;
     private segmentsQueue;
