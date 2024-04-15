@@ -1,10 +1,10 @@
-import { EventListener } from "./EventListener";
-import { StormEvent } from "./StormEvent";
+import { StormLibraryEvent } from "./StormLibraryEvent";
+import { Logger } from "../logger/Logger";
 export declare class EventDispatcher {
-    protected eventListeners: Array<EventListener>;
-    addEventListener(eventName: string | number, callback: any, thisRef?: any, priority?: number, logMessage?: string | null): boolean;
-    removeEventListener(eventName: string, callback: any): boolean;
-    private sortEvents;
-    dispatchEvent(stormEvent: StormEvent): void;
-    protected removeAllEventListener(): void;
+    protected logger: Logger;
+    private listeners;
+    addEventListener<K extends keyof StormLibraryEvent>(eventName: K, listener: (ev: StormLibraryEvent[K]) => void, removable?: boolean): boolean;
+    removeEventListener<K extends keyof StormLibraryEvent>(eventName: K, listener?: (ev: StormLibraryEvent[K]) => void): boolean;
+    removeAllEventListeners<K extends keyof StormLibraryEvent>(): void;
+    dispatchEvent<K extends keyof StormLibraryEvent>(eventName: K, event: StormLibraryEvent[K]): void;
 }

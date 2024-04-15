@@ -1,13 +1,11 @@
-import { VideoContainer } from "./VideoContainer";
 import { PlayerType } from "./enum/PlayerTypes";
+import { StormMetaDataItem } from "../model/StormMetaDataItem";
 export interface IPlayer {
     start(): void;
     stop(): void;
-    destroy(force: boolean): void;
     restart(): void;
-    play(force: boolean): void;
+    play(): void;
     pause(): void;
-    togglePlay(): void;
     onVideoPlay(): void;
     onVideoPause(): void;
     onVideoStop(): void;
@@ -15,14 +13,10 @@ export interface IPlayer {
     getTime(): number;
     getAbsoluteTime(): number;
     isPlaying(): boolean;
-    getPlaybackStatus(): string;
-    getCurrentSource(): any;
-    addStreamSource(sourceItem: any, addAndPlay: boolean): boolean;
-    setQuality(sourName: string): boolean;
-    getCurrentQuality(): string;
-    onVideoMetadata(event: any): void;
-    getVideoContainer(): VideoContainer;
+    getMetaData(): StormMetaDataItem | null;
+    onMetaData(metaData: StormMetaDataItem): void;
+    destroy(): void;
     getPlayerType(): PlayerType;
-    isInSeekMode(): boolean;
-    setSeekValue(newValue: number): void;
+    setURL(url: string): void;
+    getIfStoppedByBrowser(): boolean;
 }

@@ -3,5 +3,6 @@ export declare enum ConnectionState {
     STARTED = 1,
     CONNECTING = 2,
     CONNECTED = 3,
-    CLOSED = 4
+    CLOSED = 4,
+    FAILED = 5
 }

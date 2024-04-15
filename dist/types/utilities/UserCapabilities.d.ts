@@ -14,5 +14,6 @@ export declare class UserCapabilities {
     static hasWebRTCSupport(): boolean;
     static hasHLSSupport(videoObject: HTMLVideoElement | null): boolean;
     static hasMSESupport(): boolean;
+    static hasMMSSupport(): boolean;
     static isSSL(): boolean;
 }

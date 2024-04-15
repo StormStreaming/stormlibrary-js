@@ -1,5 +1,12 @@
 import { StormLibrary } from "./StormLibrary";
-import { StormLibraryConfig } from "./types/StormLibraryConfig";
+import { StormStreamConfig } from "./types/StormStreamConfig";
 export { StormLibrary } from "./StormLibrary";
-export type { StormLibraryConfig } from "./types/StormLibraryConfig";
-export declare function create(config: StormLibraryConfig): StormLibrary;
+export type { StormStreamConfig } from "./types/StormStreamConfig";
+export type { StormLibraryEvent } from "./events/StormLibraryEvent";
+export type { StormLibraryListener } from "./events/StormLibraryListener";
+export type { StormMetaDataItem } from "./model/StormMetaDataItem";
+export type { ISourceItem } from "./model/ISourceItem";
+export type { RTMPSourceItem } from "./model/RTMPSourceItem";
+export type { StormSourceItem } from "./model/StormSourceItem";
+export type { SourceItem } from "./types/SourceItem";
+export declare function create(config: StormStreamConfig): StormLibrary;

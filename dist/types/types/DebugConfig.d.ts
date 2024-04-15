@@ -1,13 +1,13 @@
-export declare type DebugConfig = {
+export type DebugConfig = {
     console?: IDebugConsoleConfig;
     container?: IDebugContainerConfig;
 };
-export declare type IDebugConsoleConfig = {
+export type IDebugConsoleConfig = {
     enabled?: boolean;
     logTypes?: Array<string>;
     monoColor?: false;
 };
-export declare type IDebugContainerConfig = {
+export type IDebugContainerConfig = {
     enabled?: boolean;
     logTypes?: Array<string>;
     monoColor?: false;

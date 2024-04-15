@@ -1,8 +1,9 @@
 import { StreamInfoConfig } from "./StreamInfoConfig";
-export declare type SourceListConfig = {
+export type SourceListConfig = {
     host?: string;
-    application: string;
-    streamName: string;
+    application?: string;
+    port?: number;
+    streamKey: string;
     protocol: string;
     streamInfo?: StreamInfoConfig;
 };

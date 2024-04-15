@@ -3,7 +3,7 @@ import { IWebRTC } from "../player/IWebRTC";
 import { IStreamer } from "./IStreamer";
 import { StormLibrary } from "../StormLibrary";
 import { VideoContainer } from "../player/VideoContainer";
-import { PlayerState } from "../player/enum/PlayerState";
+import { LibraryState } from "../player/enum/LibraryState";
 import { PlayerType } from "../player/enum/PlayerTypes";
 export declare class WebRTCStreamer implements IPlayer, IWebRTC, IStreamer {
     private readonly LOG_ACTIVITY;
@@ -25,7 +25,7 @@ export declare class WebRTCStreamer implements IPlayer, IWebRTC, IStreamer {
     private constraints;
     private streamInfo;
     private userData;
-    protected streamerState: PlayerState;
+    protected streamerState: LibraryState;
     private logger;
     private failedAttemps;
     private lastTimestamp;
@@ -73,7 +73,7 @@ export declare class WebRTCStreamer implements IPlayer, IWebRTC, IStreamer {
     private closeStream;
     onSoundMeter(high: number, low: number): void;
     private ifRequireInteraction;
-    getStreamerState(): PlayerState;
+    getStreamerState(): LibraryState;
     getVideoContainer(): VideoContainer;
     restart(): void;
     stop(): void;

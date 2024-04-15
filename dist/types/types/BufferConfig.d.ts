@@ -1,4 +1,4 @@
-export declare type BufferConfig = {
+export type BufferConfig = {
     minValue?: number;
     startValue?: number;
     maxValue?: number;

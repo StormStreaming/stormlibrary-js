@@ -1,6 +1,7 @@
-export declare type VideoConfig = {
-    scalingMode?: string;
+export type VideoConfig = {
+    scalingMode?: "fill" | "letterbox" | "crop" | "original";
     containerID?: string;
-    width?: number;
-    height?: number;
+    width?: number | string;
+    height?: number | string;
+    aspectRatio?: string;
 };

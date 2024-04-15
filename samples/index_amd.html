@@ -1,140 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <title>Storm JavaScript Library - AMD Sample page</title>
-    <meta charset="UTF-8">
+    <title>Storm JavaScript Player - AMD Sample page</title>
+    <meta charset="UTF-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
 </head>
 <body>
-    <div id="container"></div>
-    <script>
+<div id="container"></div>
+<script>
 
-        /**
-         * Standard configuration object
-         */
-        const config = {
-            connectionType: "direct",                        // "direct" or "gateway", please check doc for more info
-            stream: {
-                serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
-                    {
-                        host: "localhost",                   // host or ip to the streaming server
-                        port: 80,                            // server port
-                        ssl: false                           // whenever SSL connection should be used or not
-                    }
-                ],
-                sourceList: [
-                    {
-                        protocol: "storm",                   // either "storm" (stream was published to the server), or "rtmp". RTMP (external source)
-                        streamName: "test",                  // name of the stream
-                        application: "live"                  // application name (can be configured in storm server settings)
-                    },
-                ]
-            },
-            settings: {
-                autoStart: true,                              // if true, video will start playing automatically, but will be muted too
-                restartOnError: true,                         // if something bad happens, player will try to restart
-                reconnectTime: 1.0,                           // if a connection with a server fails, player will restart in given time
-                enabledProtocols: ["MSE", "HLS"],             // "MSE" for desktop, android browsers and iPad OS, "HLS" for iPhone iOS
-                video: {
-                    scalingMode: "fill",                      // possible values "fill", "letterbox", "crop" and "letterbox"
-                    containerID: "container",                 // name of the HTML container
-                    width: 640,                               // initial player width
-                    height: 360                               // initial player height
+    /**
+     * Standard configuration object
+     */
+    const streamConfig = {
+        configurationType: "embedded",                   // "embedded" or "gateway", please check doc for more info
+        stream: {
+            serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
+                {
+                    host: "172.0.0.1",                   // host or ip to a storm streaming server instance
+                    application: "live",                 // application name (can be configured in storm server settings)
+                    port: 8080,                            // server port, usually 80 (non-ssl) or 443 (ssl)
+                    ssl: false                           // whenever SSL connection should be used or not
+                }
+            ],
+            sourceList: [
+                {
+                    protocol: "storm",                   // either "storm" (stream was published to the server), or "rtmp". RTMP (external source)
+                    streamKey: "test",                   // streamKey
                 },
-                debug: {
-                    console: {                                // console output
-                        enabled: true                         // if console output is activated
-                    }
+            ]
+        },
+        settings: {
+            autoStart: true,                              // if set to true, video will start playing automatically, but will be muted too
+            video: {
+                scalingMode: "fill",                      // possible values "fill", "letterbox", "crop" and "original"
+                containerID: "container",                 // name of the HTML container
+                aspectRatio: "16:9",                      // <video> element will scale to provided aspect-ratio. This parameter is optional and will overwrite "height" parameter as "width" will only be used for calculations
+                width: "100%",                            // <video> element width, can be either "px" or "%" (string), as (number) will always be "px" value. For % it'll auto-scale to parent container,
+            },
+            debug: {
+                console: {                                // console output
+                    enabled: true                         // if console output is activated
                 }
             }
-        };
+        }
+    };
+
+    /**
+     * Path to the AMD module
+     */
+    requirejs(['../dist/amd/index'], function (storm) {
 
         /**
-         * Path to the AMD module
+         * Library instance
          */
-        requirejs(['../dist/amd/index'], function (storm) {
+        const player = new storm.create(streamConfig);
 
-            /**
-             * Library instance
-             */
-            const player = new storm.create(config);
-
-            /**
-             * This event is triggered when the player is ready to receive API calls. No method should be called upon the player
-             * before this event is registered.
-             */
-            player.addEventListener("playerReady", function (event) {
-                console.log("playerReady is now ready");
-            });
-
-            /**
-             * The event is triggered whenever the player starts requesting a video stream. It's the first event in the sequence
-             * for a successful playback.
-             */
-            player.addEventListener("videoConnecting", function (event) {
-                console.log("videoConnecting");
-            })
-
-            /**
-             * This event is called whenever a stream with a specific name was not found (was not published or is not ready yet).
-             * This event will be triggered after videoConnecting only and will stop a playback sequence.
-             */
-            player.addEventListener("videoNotFound", function (event) {
-                console.log("videoNotFound");
-            });
-
-            /**
-             * Event is triggered when the player could not connect to the storm server (server is not running, or there are
-             * some network issues). If there are more servers on the config list, the player will try to connect to a different server instead.
-             */
-            player.addEventListener("playerConnectionFailed", function (event) {
-                console.log("playerConnectionFailed");
-            });
-
-            /**
-             * This event tells us that a video content is being prepared for playback. It’s not playing yet, but it will start
-             * very soon. It's the second event in the sequence for a successful playback.
-             */
-            player.addEventListener("videoBuffering", function (event) {
-                console.log("videoBuffering");
-            });
-
-            /**
-             * This event contains all data related to the video (like resolutions, codecs). It's the third event in the
-             * sequence for a successful playback.
-             */
-            player.addEventListener("videoMetadata", function (event) {
-                console.log("videoMetadata");
-            });
-
-            /**
-             * The event is fired whenever the playback starts. It's the fourth and final event in the sequence for
-             * a successful playback.
-             */
-            player.addEventListener("videoPlay", function (event) {
-                console.log("videoPlay");
-            });
-
-            /**
-             * Event informs on video progress, viewer's sessions/source duration & start time along current DVR cache size.
-             * DVR cache size must be configured in server configuration file (by default is off)
-             */
-            player.addEventListener("videoProgress", function (event) {
-                console.log("videoPlay");
-                console.log("- stream duration", event.streamDuration);      // how long does this stream sessions last
-                console.log("- source duration", event.sourceDuration);      // how long is the source broadcasting
-                console.log("- source start time", event.sourceStartTime);   // when the source was started
-                console.log("- stream start Time", event.streamStartTime);   // when this stream session was started
-                console.log("- dvr cache size", event.dvrCacheSize);         // dvr cashe size in ms
-            });
-
-            /**
-             * Since all events were added, we can tell the script to start
-             */
-            player.initialize();
-
+        /**
+         * This event is activated when the library is prepared to accept API calls. No method should be invoked on the library
+         * before this event is registered.
+         */
+        storm.addEventListener("playerCoreReady", function (event) {
+            console.log("playerCoreReady");
         });
 
-    </script>
+        /**
+         * This event is triggered when the library initiates a connection with the Storm Streaming Server or Cloud instance
+         */
+        storm.addEventListener("serverConnectionInitiate", function(event){
+            console.log("serverConnectionInitiate");
+        });
+
+        /**
+         * This event is triggered when the library establishes a connection with the Storm Streaming Server or Cloud instance
+         */
+        storm.addEventListener("serverConnect", function(event){
+            console.log("serverConnect");
+        });
+
+        /**
+         * This event is called whenever a stream with a specific streamKey was not found (was not published or is not ready yet).
+         * This event will be triggered after libraryConnected only and will stop a playback sequence.
+         */
+        storm.addEventListener("streamNotFound", function (event) {
+            console.log("streamNotFound");
+        });
+
+        /**
+         * Event is triggered when the library could not connect to the Storm Server/Cloud instance (it is not running, or there are
+         * some network issues). If there are more servers on the config list, the library will try to connect to a different server instead.
+         */
+        storm.addEventListener("serverConnectionError", function (event) {
+            console.log("serverConnectionError");
+        });
+
+        /**
+         * This event tells us that a video content is being prepared for playback. It’s not playing yet, but it will start
+         * very soon. This event will fire again if video buffer goes down to zero.
+         */
+        storm.addEventListener("bufferingStart", function(event){
+            console.log("bufferingStart");
+        });
+
+        /**
+         * This event tells us that a video buffer is now full. Playback will start any moment now.
+         */
+        storm.addEventListener("bufferingComplete", function(event){
+            console.log("bufferingComplete");
+        });
+
+        /**
+         * This event contains all data related to the video (like resolutions, codecs). It's the third event in the
+         * sequence for a successful playback.
+         */
+        storm.addEventListener("metadataReceived", function(event){
+            console.log(`-->: video-codec: ${event.metadata.getVideoCodec()}`);
+            console.log(`-->: audio-codec: ${event.metadata.getAudioCodec()}`);
+            console.log(`-->: video width: ${event.metadata.getVideoWidth()}`);
+            console.log(`-->: video height: ${event.metadata.getVideoHeight()}`);
+            console.log(`-->: fps: ${event.metadata.getNominalFPS()}`);
+            console.log(`-->: encoder: ${event.metadata.getEncoder()}`);
+        });
+
+        /**
+         * The event is fired whenever the playback starts.
+         */
+        storm.addEventListener("playbackStart", function(event){
+            console.log("playbackStarted");
+        });
+
+        /**
+         * The event is fired whenever the playback pauses.
+         */
+        storm.addEventListener("playbackPause", function(event){
+            console.log("playbackStarted");
+        });
+
+        /**
+         * Event informs on video progress, viewer's sessions/source duration & start time along current DVR cache size.
+         * DVR cache size must be configured in server configuration file (by default is off)
+         */
+        storm.addEventListener("playbackProgress", function(event){
+            console.log(`-->: playback duration: ${event.playbackDuration}`);
+            console.log(`-->: playback start time: ${event.playbackStartTime}`);
+            console.log(`-->: stream total duration: ${event.streamDuration}`);
+            console.log(`-->: stream start time: ${event.streamStartTime}`);
+            console.log(`-->: dvr cache size: ${event.dvrCacheSize}`);
+        });
+
+        /**
+         * Since all events were added, we can tell the script to start
+         */
+        player.initialize();
+
+    });
+</script>
 </body>
 </html>

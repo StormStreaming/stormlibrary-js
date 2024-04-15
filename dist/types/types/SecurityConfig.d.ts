@@ -1,4 +1,4 @@
-export declare type SecurityConfig = {
+export type SecurityConfig = {
     type: string;
     token?: string;
     password?: string;

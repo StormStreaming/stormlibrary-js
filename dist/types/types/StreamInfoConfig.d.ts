@@ -1,4 +1,4 @@
-export declare type StreamInfoConfig = {
+export type StreamInfoConfig = {
     label: string;
     bitrate?: number;
     width?: string;

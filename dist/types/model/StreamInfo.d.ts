@@ -3,11 +3,12 @@ export declare class StreamInfo {
     private width;
     private height;
     private fps;
-    private bitRate;
+    private bitrate;
     constructor(config: any);
     getLabel(): string;
     getWidth(): number;
     getHeight(): number;
     getFPS(): number;
-    getBitRate(): number;
+    getBitrate(): number;
+    toString(): string;
 }

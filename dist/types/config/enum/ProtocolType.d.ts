@@ -5,6 +5,5 @@ export declare enum ProtocolType {
     HLS = "HLS",
     WEB_SOCKETS = "WebSockets",
     MPEG_DASH = "MpegDash",
-    STORM = "Storm",
-    MSE = "MSE"
+    STORM = "Storm"
 }

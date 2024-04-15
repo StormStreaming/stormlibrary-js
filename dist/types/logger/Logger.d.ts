@@ -11,6 +11,8 @@ export declare class Logger {
     private colorOrder;
     private monoColor;
     private logMemory;
+    private libraryInstanceID;
+    private playerInstanceID;
     constructor(config: DebugConfig, stormLibrary: StormLibrary);
     info(objectName: any, message: string): void;
     warning(objectName: any, message: string): void;
@@ -19,5 +21,6 @@ export declare class Logger {
     trace(objectName: any, message: string): void;
     private logData;
     private writeToContainer;
+    setPlayerID(playerID: number): void;
     getAllLogs(): Array<string>;
 }

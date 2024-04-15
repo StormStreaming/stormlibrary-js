@@ -2,10 +2,10 @@ import { AbstractSourceItem } from "./AbstractSourceItem";
 import { ISourceItem } from "./ISourceItem";
 import { StreamInfo } from "./StreamInfo";
 export declare class WebRTCSourceItem extends AbstractSourceItem implements ISourceItem {
-    private streamName;
+    private streamKey;
     private defaultSource;
-    constructor(streamName: string, streamInfo: StreamInfo, defaultSource: boolean);
-    getStreamName(): string;
+    constructor(streamKey: string, streamInfo: StreamInfo, defaultSource: boolean);
+    getStreamKey(): string;
     isDefaultSource(): boolean;
     toString(): string;
 }

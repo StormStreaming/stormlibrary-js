@@ -1,5 +1,55 @@
 # Change Log
 
+## 4.1.1
+- Minor improvements for Cloud data pooling,
+
+## 4.1.0
+- Library will now report info regarding latency back to server,
+- General improvements to MSE/MMS playback,
+
+## 4.0.5
+- Minor improvements to quality change & ABR,
+
+## 4.0.4
+- New methods - isConnected & isAuthorized were added to the API,
+- Method name - gatewayRequest was replaces with subscribe method (it also provides auto-play functionality),
+
+## 4.0.3
+- New methods - isConnected & isAuthorized were added to the API,
+
+## 4.0.2
+- Bug fix for restoring library after a tab freeze,
+- Bug fix for wrong return type for getStreamConfig,
+
+## 4.0.1
+- Bug fix for source list update event,
+
+## 4.0.0
+
+- Native mobile FullScreen mode as option,
+- New events and event-name changes,
+- New MediaSource and LL-HLS internal players,
+- Gateway embed method was redesigned (works much faster now),
+- New communication protocol for Storm Streaming Server (version 3.0),
+- Support for optional parameters,
+- Playback states for better player control,
+- Stream states for even better player control,
+- Changes in API,
+- ManagedMediaSource has replaced LL-HLS on iOS 17+,
+
+## 3.0.0
+
+- Library was upgraded to Node 20.3.1,
+- Standardization of event names and API methods,
+- Change in the mechanics of some events,
+- In the stream settings, the application has been moved to the server section,
+- New embed code formula for Gateway connection type,
+- New communication protocol for Storm Streaming Server (version 2.0),
+- Player width & height can now be expressed as % value or px,
+- Aspect-ratio parameter was added,
+
+This version of the Storm Library is only compatible with Storm Streaming v.2.0.0 and above.
+
 ## 2.2.3
 
 - Improved memory management for video object (small RAM usage for long streaming sessions),

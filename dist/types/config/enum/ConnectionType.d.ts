@@ -1,4 +1,4 @@
-export declare enum ConnectionType {
-    DIRECT = 0,
+export declare enum ConfigurationType {
+    EMBEDDED = 0,
     GATEWAY = 1
 }

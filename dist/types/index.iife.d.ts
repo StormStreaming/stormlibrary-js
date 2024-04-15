@@ -1,3 +1,3 @@
 import { StormLibrary } from "./StormLibrary";
-import { StormLibraryConfig } from "./types/StormLibraryConfig";
-export default function (config: StormLibraryConfig): StormLibrary;
+import { StormStreamConfig } from "./types/StormStreamConfig";
+export default function (config: StormStreamConfig): StormLibrary;

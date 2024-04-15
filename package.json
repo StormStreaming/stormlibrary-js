@@ -1,38 +1,100 @@
 {
   "name": "@stormstreaming/stormlibrary",
-  "version": "2.2.3",
+  "version": "4.1.1",
   "description": "A JavaScript library containing core web video player functionality for embedding live-video streams on a website. Part of StormStreaming Suite.",
-  "private": false,
   "author": "Web-Anatomy s.c. <contact@web-anatomy.com>",
   "main": "dist/iife/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.esm.d.ts",
+  "type": "module",
   "files": [
     "*.d.ts",
-    "dist",
-    "samples"
+    "dist"
   ],
-  "license": "SEE LICENSE IN LICENSE.txt",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/StormStreaming/stormlibrary-js.git"
   },
-  "keywords": [
-    "web video",
-    "web player",
-    "video player",
-    "low-latency",
-    "live streaming",
-    "video streaming",
-    "stormstreaming",
-    "storm streaming server",
-    "storm library"
-  ],
+  "license": "SEE LICENSE IN LICENSE.txt",
   "bugs": {
     "url": "https://github.com/StormStreaming/stormlibrary-js/issues"
   },
   "homepage": "https://github.com/StormStreaming/stormlibrary-js#readme",
-  "publishConfig": {
-    "access": "public"
+  "keywords": [
+    "stormstreaming",
+    "web",
+    "video",
+    "player",
+    "video player",
+    "storm library",
+    "web player",
+    "live video",
+    "low-latency",
+    "live streaming"
+  ],
+  "watch": {
+    "dev": "src/*"
+  },
+  "scripts": {
+    "clean": "node scripts/clear.js",
+    "deep-clean": "shx 'find ./src -type f \\( -name \"*.js\" -o -name \"*.js.map\" \\) -exec rm -f {} \\;\n'",
+    "compile:esm": "cross-env BABEL_ENV=esmBundled rollup -c rollup.config.js",
+    "compile:umd": "cross-env BABEL_ENV=umdBundled rollup -c rollup.config.js",
+    "compile:cjs": "cross-env BABEL_ENV=cjsBundled rollup -c rollup.config.js",
+    "compile:iife": "cross-env BABEL_ENV=iifeBundled rollup -c rollup.config.js",
+    "compile:amd": "cross-env BABEL_ENV=amdBundled rollup -c rollup.config.js",
+    "compile:types": "tsc -p tsconfig.json",
+    "compile": "npm-run-all -p --print-label compile:esm compile:umd compile:iife compile:cjs compile:amd compile:types",
+    "cook:prepare": "node scripts/prepare.js",
+    "cook:banner": "node scripts/banner.js",
+    "cook:obfuscate": "node scripts/obfuscate.js",
+    "cook:minify": "node scripts/minify.js",
+    "build": "npm-run-all -l clean compile cook",
+    "cook": "npm-run-all -l cook:prepare cook:minify cook:banner",
+    "dev": "cross-env NODE_ENV=development BABEL_ENV=iifeBundled rollup -c -w",
+    "copy:samples": "shx cp -R samples '/Volumes/Dysk 4 Praca i Grafika/WorkGround/Web WorkSpace/StormLibraryDeploy'",
+    "copy:config": "shx cp {CHANGELOG.md,README.md,package.json} '/Volumes/Dysk 4 Praca i Grafika/WorkGround/Web WorkSpace/StormLibraryDeploy'",
+    "copy:dist": "shx cp -R dist '/Volumes/Dysk 4 Praca i Grafika/WorkGround/Web WorkSpace/StormLibraryDeploy'",
+    "copy": "npm-run-all copy:samples copy:config copy:dist",
+    "deploy:prepare": "node scripts/create-deploy.js",
+    "deploy:upload-sftp": "node scripts/sftp-upload.js",
+    "deploy:upload-s3": "node scripts/s3-upload.js",
+    "deploy:s3": "npm-run-all prepare deploy:prepare deploy:upload-s3",
+    "deploy:sftp": "npm-run-all prepare deploy:prepare deploy:upload-sftp"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.387.0",
+    "@aws-sdk/lib-storage": "^3.387.0",
+    "@aws-sdk/s3-request-presigner": "^3.387.0",
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-transform-object-assign": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "cross-env": "^7.0.3",
+    "fs-extra": "^11.1.1",
+    "i": "^0.3.7",
+    "javascript-obfuscator": "^4.0.2",
+    "npm": "^9.7.2",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^3.25.3",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^2.0.2",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "sftp-upload": "^1.0.4",
+    "shx": "^0.3.4",
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.5",
+    "uglify-js": "^3.17.4"
+  },
+  "dependencies": {
+    "@types/lodash.debounce": "^4.0.7",
+    "lodash.debounce": "^4.0.8"
   }
 }
