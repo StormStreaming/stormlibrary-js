@@ -1,6 +1,7 @@
 import { StormLibrary } from "./StormLibrary";
 import { StormStreamConfig } from "./types/StormStreamConfig";
 export { StormLibrary } from "./StormLibrary";
+export { EventDispatcher } from "./events/EventDispatcher";
 export type { StormStreamConfig } from "./types/StormStreamConfig";
 export type { StormLibraryEvent } from "./events/StormLibraryEvent";
 export type { StormLibraryListener } from "./events/StormLibraryListener";

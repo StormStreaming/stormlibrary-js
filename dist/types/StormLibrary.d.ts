@@ -7,6 +7,7 @@ import { StormStreamConfig } from "./types/StormStreamConfig";
 import { PlaybackController } from "./player/PlaybackController";
 import { ISourceItem } from "./model/ISourceItem";
 import { SourceItem } from "./types/SourceItem";
+import { StormLibraryEvent } from "./events/StormLibraryEvent";
 export declare class StormLibrary extends EventDispatcher {
     private static NEXT_LIBRARY_ID;
     private readonly LIBRARY_VERSION;
@@ -75,5 +76,6 @@ export declare class StormLibrary extends EventDispatcher {
     getVideoElement(): HTMLVideoElement | undefined;
     getVideoContainer(): VideoContainer;
     getIfUnmuted(): boolean;
+    dispatchEvent<K extends keyof StormLibraryEvent>(eventName: K, event: StormLibraryEvent[K]): void;
     destroy(): void;
 }

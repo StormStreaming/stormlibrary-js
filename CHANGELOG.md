@@ -1,5 +1,10 @@
 # Change Log
 
+## 4.1.2
+
+- All samples and documentation wa modified to use "gateway" configuration,
+- License header was updated,
+
 ## 4.1.1
 - Minor improvements for Cloud data pooling,
 

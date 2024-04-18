@@ -43,7 +43,7 @@ To get started check our examples and documentation at https://www.stormstreamin
      * Standard configuration object
      */
     const streamConfig = {
-        configurationType: "embedded",                   // "embedded" or "gateway", please check doc for more info
+        configurationType: "gateway",                    // "embedded" or "gateway", please check doc for more info
         stream: {
             serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
                 {
@@ -53,17 +53,12 @@ To get started check our examples and documentation at https://www.stormstreamin
                     ssl: false                           // whenever SSL connection should be used or not
                 }
             ],
-            sourceList: [
-                {
-                    protocol: "storm",                   // either "storm" (stream was published to the server), or "rtmp". RTMP (external source)
-                    streamKey: "test",                   // streamKey
-                },
-            ]
+            streamKey: "test"                             // streamkey
         },
         settings: {
             autoStart: true,                              // if set to true, video will start playing automatically, but will be muted too
             video: {
-                containerID: "videoHolder",                 // name of the HTML container
+                containerID: "videoHolder",               // name of the HTML container
                 aspectRatio: "16:9",                      // <video> element will scale to provided aspect-ratio. This parameter is optional and will overwrite "height" parameter as "width" will only be used for calculations
                 width: "100%",                            // <video> element width, can be either "px" or "%" (string), as (number) will always be "px" value. For % it'll auto-scale to parent container,
             },
@@ -107,27 +102,22 @@ To get started check our examples and documentation at https://www.stormstreamin
        * Basic configuration object
        */
       const streamConfig = {
-          configurationMode: "embedded",                   // "embedded" or "gateway", please check doc for more info
+          configurationMode: "gateway",                    // "embedded" or "gateway", please check doc for more info
           stream: {
               serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
                   {
                       host: "localhost",                   // host or ip to a storm streaming server instance
                       application: "live",                 // application name (can be configured in storm server settings)
-                      port: 80,                            // server port, usually 80 (non-ssl) or 443 (ssl)
+                      port: 8080,                          // server port, usually 80 (non-ssl) or 443 (ssl)
                       ssl: false                           // whenever SSL connection should be used or not
                   }
               ],
-              sourceList: [
-                  {
-                      protocol: "storm",                   // either "storm" (stream was published to the server), or "rtmp". RTMP (external source)
-                      streamName: "test",                  // name of the stream
-                  },
-              ]
+              streamKey: "test"                            // streamkey
           },
           settings: {
               autoStart: true,                             // if true, video will start playing automatically, but will be muted too
               video: {
-                  containerID: "videoHolder",                // name of the HTML container
+                  containerID: "videoHolder",              // name of the HTML container
                   aspectRatio: "16:9",                     // <video> element will scale to provided aspect-ratio. This parameter is optional and will overwrite "height" parameter as "width" will only be used for calculations
                   width: "100%",                           // <video> element width, can be either "px" or "%" (string), as (number) will always be "px" value. For % it'll auto-scale to parent container,
               },
@@ -169,21 +159,16 @@ const streamConfig = {
                 {
                     host: "localhost",                   // host or ip to a storm streaming server instance
                     application: "live",                 // application name (can be configured in storm server settings)
-                    port: 80,                            // server port, usually 80 (non-ssl) or 443 (ssl)
+                    port: 8080,                          // server port, usually 80 (non-ssl) or 443 (ssl)
                     ssl: false                           // whenever SSL connection should be used or not
                 }
             ],
-            sourceList: [
-                {
-                    protocol: "storm",                   // either "storm" (stream was published to the server), or "rtmp". RTMP (external source)
-                    streamName: "test",                  // name of the stream
-                },
-            ]
+            streamKey: "test"                             // streamkey
         },
         settings: {
             autoStart: true,                              // if true, video will start playing automatically, but will be muted too
             video: {
-                containerID: "videoHolder",                 // name of the HTML container
+                containerID: "videoHolder",               // name of the HTML container
                 aspectRatio: "16:9",                      // <video> element will scale to provided aspect-ratio. This parameter is optional and will overwrite "height" parameter as "width" will only be used for calculations
                 width: "100%",                            // <video> element width, can be either "px" or "%" (string), as (number) will always be "px" value. For % it'll auto-scale to parent container, 
             },
@@ -232,16 +217,11 @@ storm.initialize();
                   {
                       host: "localhost",                   // host or ip to a storm streaming server instance
                       application: "live",                 // application name (can be configured in storm server settings)
-                      port: 80,                            // server port, usually 80 (non-ssl) or 443 (ssl)
+                      port: 8080,                          // server port, usually 80 (non-ssl) or 443 (ssl)
                       ssl: false                           // whenever SSL connection should be used or not
                   }
               ],
-              sourceList: [
-                  {
-                      protocol: "storm",                   // either "storm" (stream was published to the server), or "rtmp". RTMP (external source)
-                      streamName: "test",                  // name of the stream
-                  },
-              ]
+              streamKey: "test"                             // streamkey
           },
           settings: {
               autoStart: true,                              // if true, video will start playing automatically, but will be muted too
