@@ -1,5 +1,10 @@
 # Change Log
 
+## 4.2.0
+
+- The library will now react if a stream is created, even if it did not exist earlier on a server,
+- Minor improvements to WebSocket engine,
+
 ## 4.1.2
 
 - All samples and documentation wa modified to use "gateway" configuration,

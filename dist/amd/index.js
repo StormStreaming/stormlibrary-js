@@ -4,8 +4,8 @@
  * contact@stormstreaming.com
  * https://stormstreaming.com
  *
- * Version: 4.1.2
- * Version: 4/18/2024, 1:02:49 PM
+ * Version: 4.2.0
+ * Version: 5/9/2024, 11:53:23 AM
  *
  * LEGAL NOTICE:
  * This software is subject to the terms and conditions defined in
@@ -4823,8 +4823,8 @@
     class StormLibrary extends EventDispatcher {
       constructor(streamConfig) {
         super();
-        this.LIBRARY_VERSION = "4.1.2";
-        this.COMPILE_DATE = "4/18/2024, 1:02:48 PM";
+        this.LIBRARY_VERSION = "4.2.0";
+        this.COMPILE_DATE = "5/9/2024, 11:53:22 AM";
         this.LIBRARY_BRANCH = "Main";
         this.PLAYER_PROTOCOL_VERSION = 1;
         this.initialized = false;

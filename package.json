@@ -1,6 +1,6 @@
 {
   "name": "@stormstreaming/stormlibrary",
-  "version": "4.1.2",
+  "version": "4.2.0",
   "description": "A JavaScript library containing core web video player functionality for embedding live-video streams on a website. Part of StormStreaming Suite.",
   "author": "Web-Anatomy s.c. <contact@web-anatomy.com>",
   "main": "dist/iife/index.js",
@@ -56,6 +56,7 @@
     "copy:config": "shx cp {CHANGELOG.md,README.md,package.json} '/Volumes/Dysk 4 Praca i Grafika/WorkGround/Web WorkSpace/StormLibraryDeploy'",
     "copy:dist": "shx cp -R dist '/Volumes/Dysk 4 Praca i Grafika/WorkGround/Web WorkSpace/StormLibraryDeploy'",
     "copy": "npm-run-all copy:samples copy:config copy:dist",
+    "prepare": "npm run build",
     "deploy:prepare": "node scripts/create-deploy.js",
     "deploy:upload-sftp": "node scripts/sftp-upload.js",
     "deploy:upload-s3": "node scripts/s3-upload.js",
