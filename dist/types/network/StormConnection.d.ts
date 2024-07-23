@@ -35,6 +35,7 @@ export declare class StormConnection extends AbstractSocket {
     newSubscription(streamKey: string): void;
     reinitialize(): void;
     getIfAuthorized(): boolean;
+    getIfPlayerCoreReady(): boolean;
     getSourceItem(): ISourceItem | null;
     isConnectionActive(): boolean;
     destroy(): void;

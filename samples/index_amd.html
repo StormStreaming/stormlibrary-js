@@ -13,11 +13,10 @@
          * Standard configuration object
          */
         const streamConfig = {
-            configurationType: "gateway",                    // "embedded" or "gateway", please check doc for more info
             stream: {
                 serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
                     {
-                        host: "172.0.0.1",                   // host or ip to a storm streaming server instance
+                        host: "localhost",                   // host or ip to a storm streaming server instance
                         application: "live",                 // application name (can be configured in storm server settings)
                         port: 8080,                          // server port, usually 80 (non-ssl) or 443 (ssl)
                         ssl: false                           // whenever SSL connection should be used or not

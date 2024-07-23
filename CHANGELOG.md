@@ -1,5 +1,11 @@
 # Change Log
 
+
+## 4.3.0
+
+- "Gateway" connection-type is now the default one, and the field connetionType i now optional,
+- resizing mechanizm was updated,
+
 ## 4.2.0
 
 - The library will now react if a stream is created, even if it did not exist earlier on a server,

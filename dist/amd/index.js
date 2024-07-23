@@ -4,8 +4,8 @@
  * contact@stormstreaming.com
  * https://stormstreaming.com
  *
- * Version: 4.2.0
- * Version: 5/9/2024, 11:53:23 AM
+ * Version: 4.3.0
+ * Version: 7/23/2024, 12:24:38 PM
  *
  * LEGAL NOTICE:
  * This software is subject to the terms and conditions defined in
@@ -1274,7 +1274,7 @@
             default:
               throw new Error("Unknown config type:\"" + this.configurationType + "\"");
           }
-        } else throw new Error("No connectionType field was provided. Please check your player config!");
+        } else this.configurationType = ConfigurationType.GATEWAY;
         if (this.config.stream !== undefined && this.config.stream !== null) this.stream = new StreamConfig(this.config.stream, this.roleType, this.configurationType);else throw new Error("No stream field was provided. Please check your player config!");
         if (this.config.settings !== undefined && this.config.settings !== null) this.settings = new SettingsConfig(this.config.settings);else this.settings = new SettingsConfig(null);
         if (this.config.demoMode !== undefined && this.config.demoMode !== null) this.demoMode = this.config.demoMode;
@@ -1940,6 +1940,18 @@
         this.forceMute = false;
         this.isInFullScreenMode = false;
         this.hadPlayed = false;
+        this.onResize = () => {
+          if (this.parentContainer != null) {
+            this.tempContainerWidth = this.parentContainer.getBoundingClientRect().width;
+            this.tempContainerHeight = this.parentContainer.getBoundingClientRect().height;
+            const isWidthInPX = this.main.getConfigManager().getSettings().getVideoConfig().getIfVideoWidthInPixels();
+            const isHeightInPX = this.main.getConfigManager().getSettings().getVideoConfig().getIfVideoHeightInPixels();
+            if (!isWidthInPX || !isHeightInPX) {
+              this.resizeVideo();
+              this.scaleVideo();
+            }
+          }
+        };
         this.main = main;
         this.containerID = main.getConfigManager().getSettings().getVideoConfig().getContainerID();
         this.logger = main.getLogger();
@@ -1960,9 +1972,13 @@
             this.videoContainer.style.position = "relative";
             this.videoContainer.classList.add("stormLibrary");
             this.videoElement.style.objectFit = "fill";
-            this.resizeObserver = new ResizeObserver(debounce$1(function () {
-              that.onResize();
-            }, 100));
+            this.resizeObserver = new ResizeObserver(debounce$1(() => this.onResize(), 250, {
+              leading: false,
+              trailing: true
+            }));
+            this.parentContainer.addEventListener("transitionend", () => {
+              this.onResize();
+            });
             this.configureVideoElement();
             this.attachEvents();
             this.resizeVideo();
@@ -2004,19 +2020,6 @@
           this.main.dispatchEvent("fullScreenEnter", {
             ref: this.main
           });
-        }
-      }
-      onResize() {
-        var _a, _b;
-        if (this.parentContainer != null) {
-          this.tempContainerWidth = (_a = this.parentContainer) === null || _a === void 0 ? void 0 : _a.getBoundingClientRect().width;
-          this.tempContainerHeight = (_b = this.parentContainer) === null || _b === void 0 ? void 0 : _b.getBoundingClientRect().height;
-          const isWidthInPX = this.main.getConfigManager().getSettings().getVideoConfig().getIfVideoWidthInPixels();
-          const isHeightInPX = this.main.getConfigManager().getSettings().getVideoConfig().getIfVideoHeightInPixels();
-          if (!isWidthInPX || !isHeightInPX) {
-            this.resizeVideo();
-            this.scaleVideo();
-          }
         }
       }
       configureVideoElement() {
@@ -2228,6 +2231,7 @@
       destroy() {
         if (this.LOG_ACTIVITY) this.logger.info(this, "VideoContainer :: src nulling...");
         try {
+          this.resizeObserver.disconnect();
           this.videoElement.remove();
           this.videoContainer.remove();
         } catch (error) {}
@@ -2361,6 +2365,9 @@
       }
       getHeight() {
         return this.containerHeight;
+      }
+      getHTMLElement() {
+        return this.videoContainer;
       }
     }
 
@@ -3559,6 +3566,9 @@
       }
       getIfAuthorized() {
         return this.isAuthorized;
+      }
+      getIfPlayerCoreReady() {
+        return this.coreReadyDispatched;
       }
       getSourceItem() {
         return this.source;
@@ -4823,8 +4833,8 @@
     class StormLibrary extends EventDispatcher {
       constructor(streamConfig) {
         super();
-        this.LIBRARY_VERSION = "4.2.0";
-        this.COMPILE_DATE = "5/9/2024, 11:53:22 AM";
+        this.LIBRARY_VERSION = "4.3.0";
+        this.COMPILE_DATE = "7/23/2024, 12:24:36 PM";
         this.LIBRARY_BRANCH = "Main";
         this.PLAYER_PROTOCOL_VERSION = 1;
         this.initialized = false;
@@ -4999,6 +5009,9 @@
           if (this.videoContainer !== null) this.videoContainer.setScalingMode(newMode);
         } else throw new Error("StormLibrary has not been initialized yet");
       }
+      updateToSize() {
+        if (this.videoContainer !== null) this.videoContainer.onResize();
+      }
       getScalingMode() {
         if (this.initialized) {
           if (this.videoContainer !== null) return this.videoContainer.getScalingMode();
@@ -5049,6 +5062,13 @@
         if (this.playbackController != null) {
           if (this.playbackController.getConnection() != null) {
             return this.playbackController.getConnection().getIfAuthorized();
+          } else return false;
+        } else return false;
+      }
+      isReady() {
+        if (this.playbackController != null) {
+          if (this.playbackController.getConnection() != null) {
+            return this.playbackController.getConnection().getIfPlayerCoreReady();
           } else return false;
         } else return false;
       }

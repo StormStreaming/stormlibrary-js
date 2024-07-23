@@ -55,6 +55,7 @@ export declare class StormLibrary extends EventDispatcher {
     getWidth(): number;
     getHeight(): number;
     setScalingMode(newMode: string): void;
+    updateToSize(): void;
     getScalingMode(): string;
     enterFullScreen(): void;
     exitFullScreen(): void;
@@ -69,6 +70,7 @@ export declare class StormLibrary extends EventDispatcher {
     isInitialized(): boolean;
     isConnected(): boolean;
     isAuthorized(): boolean;
+    isReady(): boolean;
     getRole(): string;
     getVersion(): string;
     getBranch(): string;

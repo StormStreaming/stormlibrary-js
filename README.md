@@ -43,7 +43,6 @@ To get started check our examples and documentation at https://www.stormstreamin
      * Standard configuration object
      */
     const streamConfig = {
-        configurationType: "gateway",                    // "embedded" or "gateway", please check doc for more info
         stream: {
             serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
                 {
@@ -102,7 +101,6 @@ To get started check our examples and documentation at https://www.stormstreamin
        * Basic configuration object
        */
       const streamConfig = {
-          configurationMode: "gateway",                    // "embedded" or "gateway", please check doc for more info
           stream: {
               serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
                   {
@@ -153,7 +151,6 @@ import { StormLibrary } from "../dist/esm/index.js";
  * Basic configuration object
  */
 const streamConfig = {
-        configurationMode: "embedded",                   // "embedded" or "gateway", please check doc for more info
         stream: {
             serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
                 {
@@ -211,7 +208,6 @@ storm.initialize();
        * Basic configuration object
        */
       const streamConfig = {
-          configurationMode: "embedded",                   // "embedded" or "gateway", please check doc for more info
           stream: {
               serverList: [                                // list of streaming server, 2nd, 3rd etc. will be used as backup
                   {

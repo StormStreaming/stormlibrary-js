@@ -26,7 +26,7 @@ export declare class VideoContainer {
     constructor(main: StormLibrary);
     initialize(): void;
     private onFullScreenChange;
-    private onResize;
+    onResize: () => void;
     private configureVideoElement;
     private attachEvents;
     private resizeVideo;
@@ -50,4 +50,5 @@ export declare class VideoContainer {
     isFullScreenMode(): boolean;
     getWidth(): number;
     getHeight(): number;
+    getHTMLElement(): HTMLElement;
 }
